@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	posts: {}
-}
+	posts: {},
+};
 
 const postSlice = createSlice({
 	name: "post",
@@ -10,14 +10,14 @@ const postSlice = createSlice({
 	reducers: {
 		getPosts(state, action) {
 			state.posts = action.payload;
-		}
-	}
-})
+		},
+	},
+});
 
 export default postSlice.reducer;
 
-export function setPosts(post) {
-	return (dispatch) => {
-		dispatch(postSlice.actions.getPosts(post))
-	}
+export function SetPosts(post) {
+	return (dispatch, getState) => {
+		dispatch(postSlice.actions.getPosts(post));
+	};
 }
